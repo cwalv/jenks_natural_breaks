@@ -7,8 +7,8 @@ from ._jenks_matrices import lib as _lib
 
 
 def _jenks_matrices(data, n_classes):
-    lower_class_limits = np.zeros((len(data) + 1, n_classes + 1), dtype=int)
-    variance_combinations = np.zeros((len(data) + 1, n_classes + 1), dtype=float)
+    lower_class_limits = np.zeros((len(data) + 1, n_classes + 1), dtype=np.uint32)
+    variance_combinations = np.zeros((len(data) + 1, n_classes + 1), dtype=np.float64)
 
     lower_class_limits[1, :] = 1
     variance_combinations[2:, :] = float("Inf")

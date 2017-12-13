@@ -1,9 +1,16 @@
+#ifndef _MSC_VER // [
+#   include <inttypes.h>
+#elif (_MSC_VER < 1300)
+    typedef unsigned int      uint32_t;
+#else
+    typedef unsigned __int32  uint32_t;
+#endif // _MSC_VER ]
 
 #define idx(row_len, i, j) ((row_len) * (i) + (j))
 
 void jenks_matrices(
     const int data_len, const int n_classes, double *data,
-    int *lower_class_limits,
+    uint32_t *lower_class_limits,
     double *variance_combinations) {
 
     const int row_len = n_classes + 1;
