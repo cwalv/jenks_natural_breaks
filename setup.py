@@ -33,7 +33,7 @@ if 'TOXENV' in os.environ and 'SETUPPY_CFLAGS' in os.environ:
 
 setup(
     name='jenks-natural-breaks',
-    version='0.1.0',
+    version='0.1.1',
     license='MIT license',
     description='CFFI accelerated Jenks classification',
     long_description='{}\n{}'.format(
