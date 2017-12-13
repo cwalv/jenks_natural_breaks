@@ -1,4 +1,5 @@
 import os.path as osp
+
 import numpy as np
 
 from jenks_natural_breaks import classify
