@@ -59,7 +59,6 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
@@ -80,6 +79,7 @@ setup(
         #   ':python_version=="2.6"': ['argparse'],
         'test': ['pytest']
     },
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     setup_requires=[
         'cffi>=1.0.0',
     ] if any(i.startswith('build') or i.startswith('bdist') for i in sys.argv) else [],
