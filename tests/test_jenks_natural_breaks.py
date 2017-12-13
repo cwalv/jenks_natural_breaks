@@ -3,6 +3,7 @@ import numpy as np
 
 from jenks_natural_breaks import classify
 
+
 def test_main():
     data = np.load(osp.join(osp.dirname(__file__), "test_data.npy"))
     expected = [
@@ -15,5 +16,8 @@ def test_main():
     ]
 
     result = classify(data, 5)
-    r = lambda v: round(v, 6)
-    assert map(r, result) == map(r, expected)
+
+    def fp_compare(v1, v2):
+        return v1 - v2 < 10e-6
+
+    assert all(fp_compare(r, e) for r, e in zip(result, expected))
