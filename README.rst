@@ -40,9 +40,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/jenks-natural-breaks
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/cwalv/jenks_natural_breaks/v0.1.1.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/cwalv/jenks_natural_breaks/v0.1.2.svg
     :alt: Commits since latest release
-    :target: https://github.com/cwalv/jenks_natural_breaks/compare/v0.1.1...master
+    :target: https://github.com/cwalv/jenks_natural_breaks/compare/v0.1.2...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/jenks-natural-breaks.svg
     :alt: PyPI Wheel
