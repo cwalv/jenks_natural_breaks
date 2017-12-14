@@ -26,7 +26,7 @@ project = u'jenks_natural_breaks'
 year = '2017'
 author = u'Charlie Arnold'
 copyright = '{0}, {1}'.format(year, author)
-version = release = u'0.1.2'
+version = release = u'0.1.3'
 
 pygments_style = 'trac'
 templates_path = ['.']
