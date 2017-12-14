@@ -11,7 +11,7 @@ def _jenks_matrices(data, n_classes):
     variance_combinations = np.zeros((len(data) + 1, n_classes + 1), dtype=np.float64)
 
     lower_class_limits[1, :] = 1
-    variance_combinations[2:, :] = float("Inf")
+    variance_combinations[2:, :] = float("inf")
 
     _lib.jenks_matrices(
         len(data), n_classes,
@@ -22,15 +22,12 @@ def _jenks_matrices(data, n_classes):
     return lower_class_limits, variance_combinations
 
 
-def _jenks_breaks(data, lower_class_limits, n_classes):
-    k = len(data) - 1
+def _jenks_breaks(data, lower_class_limits, n_classes):    
     class_breaks = [data[-1]] * (n_classes + 1)
-    class_breaks[0] = data[0]
-
-    for i in range(n_classes, 1, -1):
-        idx = lower_class_limits[k, i] - 2
-        class_breaks[i - 1] = data[idx]
+    k = len(data)
+    for i in range(n_classes, 0, -1):
         k = lower_class_limits[k, i] - 1
+        class_breaks[i - 1] = data[k]
 
     return class_breaks
 

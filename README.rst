@@ -75,6 +75,8 @@ Documentation
 
 https://jenks_natural_breaks.readthedocs.io/
 
+Ported from https://github.com/simple-statistics/simple-statistics
+
 Development
 ===========
 
