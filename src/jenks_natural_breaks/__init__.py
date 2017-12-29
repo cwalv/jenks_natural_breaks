@@ -16,7 +16,7 @@ def _jenks_matrices(data, n_classes):
     _lib.jenks_matrices(
         len(data), n_classes,
         _ffi.cast("double *", data.ctypes.data),
-        _ffi.cast("int *", lower_class_limits.ctypes.data),
+        _ffi.cast("unsigned int *", lower_class_limits.ctypes.data),
         _ffi.cast("double *", variance_combinations.ctypes.data))
 
     return lower_class_limits, variance_combinations

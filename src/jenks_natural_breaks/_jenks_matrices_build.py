@@ -7,7 +7,7 @@ ffi = FFI()
 ffi.cdef('''
 void jenks_matrices(
     const int data_len, const int n_classes, double *data,
-    int *lower_class_limits,
+    unsigned int *lower_class_limits,
     double *variance_combinations);
 ''')
 
