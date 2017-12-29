@@ -33,8 +33,8 @@ def _jenks_breaks(data, lower_class_limits, n_classes):
 
 
 def classify(data, n_classes):
-    assert len(data.shape) == 1 and n_classes < data.shape[0]
-    data = np.copy(data)
+    assert len(data.shape) == 1 and n_classes <= data.shape[0]
+    data = data.astype(np.float64)
     data.sort()
     lower_class_limits, _ = _jenks_matrices(data, n_classes)
     return _jenks_breaks(data, lower_class_limits, n_classes)
