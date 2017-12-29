@@ -26,13 +26,21 @@ void jenks_matrices(
             int lower_class_limit = l - m + 1;
             double val = data[lower_class_limit - 1];
 
+            // increase the current sum and sum-of-squares
             sum += val;
             sum_squares += val * val;
 
+            // the variance at this point in the sequence is the difference
+            // between the sum of squares and the total x 2, over the number
+            // of samples.
             variance = sum_squares - (sum * sum) / m;
 
             if (lower_class_limit != 1) {
                 for (j = 2; j < n_classes + 1; j++) {
+                    // if adding this element to an existing class
+                    // will increase its variance beyond the limit, break
+                    // the class at this point, setting the `lower_class_limit`
+                    // at this point.
                     const double test_variance = variance
                         + variance_combinations[idx(row_len, lower_class_limit - 1, j - 1)];
                     if (variance_combinations[idx(row_len, l, j)] >= test_variance) {
