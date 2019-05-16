@@ -26,7 +26,7 @@ def _jenks_breaks(data, lower_class_limits, n_classes):
     class_breaks = [data[-1]] * (n_classes + 1)
     k = len(data)
     for i in range(n_classes, 0, -1):
-        k = lower_class_limits[k, i] - 1
+        k = max(0, lower_class_limits[k, i] - 1)
         class_breaks[i - 1] = data[k]
 
     return class_breaks
