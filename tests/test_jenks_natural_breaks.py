@@ -1,16 +1,19 @@
-import itertools
 import os.path as osp
 
 import numpy as np
+from six.moves import zip_longest
 
 from jenks_natural_breaks import classify
+
 
 def fp_approx_equal(v1, v2):
     return abs(v1 - v2) < 10e-6
 
+
 def assert_all_approx_equal(result, expected):
-    assert all(fp_approx_equal(r, e) for r, e in itertools.izip_longest(result, expected)), (
+    assert all(fp_approx_equal(r, e) for r, e in zip_longest(result, expected)), (
         "result ({}) != expected ({})".format(result, expected))
+
 
 def test_main():
     data = np.load(osp.join(osp.dirname(__file__), "test_data.npy"))
@@ -31,6 +34,7 @@ def test_main():
 
     # assigns correct breaks (breaking N points into N classes)
     assert_all_approx_equal(classify(np.array([9, 10, 11, 12, 13]), 5), [9, 10, 11, 12, 13, 13])
+
 
 if __name__ == "__main__":
     test_main()
